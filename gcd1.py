@@ -1,14 +1,14 @@
-def gcb(a, b):
+def gcd(a, b):
+    """ greatest common divider through division """
     if b != 0:
         if a > b:
-            return gcb(b, a % b)
+            return gcd(b, a % b)
         elif a < b:
-            return gcb(a, b % a)
+            return gcd(a, b % a)
     return a
- 
- 
+
+
 #a = int(input())
 #b = int(input())
- 
-print(gcb(44, 8))
 
+print(gcb(44, 8))

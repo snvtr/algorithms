@@ -1,4 +1,5 @@
 def merge(A:list, B:list):
+    """ сортировка слиянием """
 
     C = [0]*(len(A) + len(B))
 
@@ -16,7 +17,7 @@ def merge(A:list, B:list):
         C[c] = A[a]
         a += 1
         c += 1
-        
+
     while b < len(B):
         C[c] = B[b]
         b += 1

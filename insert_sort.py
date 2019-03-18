@@ -1,4 +1,6 @@
 def insert_sort(X):
+    """ поиск вставками """
+
     A = X[:]
     for i in range(0,len(A)-1):
         j = i + 1
@@ -18,7 +20,7 @@ def test_func(func,A,B):
     else:
         return False
 
-##### __main()__ ##### 
+##### __main()__ #####
 
 Array1 = [4, 2, 5, 5, 1, 3, 6, 0]
 Right1 = [0, 1, 2, 3, 4, 5, 5, 6]
@@ -33,14 +35,14 @@ Right3 = [1, 100]
 if test_func(insert_sort, Array1, Right1):
     print "correct insert sort"
 else:
-    print "errored insert sort" 
+    print "errored insert sort"
 
 if test_func(insert_sort, Array2, Right2):
     print "correct insert sort"
 else:
-    print "errored insert sort" 
+    print "errored insert sort"
 
 if test_func(insert_sort, Array3, Right3):
     print "correct insert sort"
 else:
-    print "errored insert sort" 
+    print "errored insert sort"

@@ -1,5 +1,7 @@
 #!C:/Python36/python3.exe
 
+# бинарный поиск
+
 def left_bound(A:list, key):
     left = -1
     right = len(A)

@@ -1,4 +1,6 @@
 def select_sort(X):
+    """ select sort """
+
     A = X[:]
     for i in range(0,len(A)-1):
         for j in range(i+1,len(A)):
@@ -17,7 +19,7 @@ def test_func(func,A,B):
     else:
         return False
 
-##### __main()__ ##### 
+##### __main()__ #####
 
 Array1 = [4, 2, 5, 1, 3, 0]
 Right1 = [0, 1, 2, 3, 4, 5]

@@ -1,12 +1,15 @@
 
 def simple_pow(x, y):
-    
+    """ простое возведение в степень """
+
     result = 1
     for i in range(y):
         result *= x
     return result
 
 def quik_pow(x, y):
+    """ рекурсивное возведение в степень """
+
     if y == 1:
         return x
     elif y == 0:
