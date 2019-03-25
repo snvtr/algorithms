@@ -1,7 +1,7 @@
 def complex_bracket_check(A):
     """
         проверяет на корректность скобочную последовательность
-        с двумя видами скобок
+        с двумя видами скобок - для простоты без иных символов
 
         >>> complex_bracket_check('(])')
         'Err'
@@ -19,7 +19,7 @@ def complex_bracket_check(A):
             return 'Err'
         if c == ']' and prev == '(': # некорректно
             return 'Err'
-				
+
         if c == '(':
             cnt_r += 1
         if c == '[':
