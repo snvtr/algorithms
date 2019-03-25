@@ -2,7 +2,7 @@
 ### --- subs() --- ###
 
 def add(heap, new_val):
-    """ добавляет новый элемент в кучу """
+    """ добавляет новый элемент в кучу и потом находит ему место в дереве """
     heap.append(new_val)
     swap_up(heap, len(heap)-1)
 
@@ -19,7 +19,7 @@ def swap_up(heap, new_idx):
         swap_up(heap, parent_id)
 
 def delete(heap, del_idx):
-    """ удаляет элемент из кучи по индексу """
+    """ удаляет элемент из кучи по индексу и замещает его элементами снизу """
     swap_down(heap, del_idx)
     x = heap.pop()
 
@@ -50,6 +50,7 @@ add(my_heap, 0)
 
 print(my_heap)
 
+delete(my_heap,1)
 delete(my_heap,3)
 
 print(my_heap)
