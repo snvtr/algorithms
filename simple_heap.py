@@ -3,20 +3,37 @@
 
 def add(heap, new_val):
     """ добавляет новый элемент в кучу """
-    pass
+    heap.append(new_val)
+    swap_up(heap, len(heap)-1)
 
-def swap_up(heap, new_val):
+def swap_up(heap, new_idx):
     """ меняет элементы местами с перемещением вверх """
-    pass
+    if new_idx == 0:
+        return
 
-def swap_down(heap, new_val):
-    """ меняет элементы местами с перемещением вниз """
-    pass
+    parent_id = new_idx // 2
+    if heap[parent_id] > heap[new_idx]:
+        tmp = heap[parent_id]
+        heap[parent_id] = heap[new_idx]
+        heap[new_idx] = tmp
+        swap_up(heap, parent_id)
 
 def delete(heap, del_idx):
-    """ удаляет элемент из кучи """
+    """ удаляет элемент из кучи по индексу """
+    pass
+
+def swap_down(heap, del_idx):
+    """ меняет элементы местами с перемещением вниз """
     pass
 
 ### --- main() --- ###
 
-heap = []
+my_heap = []
+
+add(my_heap, 4)
+add(my_heap, 3)
+add(my_heap, 2)
+add(my_heap, 1)
+add(my_heap, 0)
+
+print(my_heap)
