@@ -38,8 +38,13 @@ class Heap():
             self.swap_up(parent_idx)
 
     def swap_down(self, empty_idx):
-        """ перемещает элемент по дереву вниз при удалении элемента """
+        """
+        перемещает элемент по дереву вниз при удалении элемента
+        элемент не удаляется из списка, а заменяется на -999 -
+        чтобы увидеть место, куда "упал" удаленный элемент
+        """
         if empty_idx >= len(self.HeapList) // 2:
+            self.HeapList[empty_idx] = -999
             return
 
         child_idx1 = empty_idx * 2
