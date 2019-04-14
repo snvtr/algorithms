@@ -1,11 +1,11 @@
 from nose.tools import *
-import hoffman.hoffman
+import huffman.huffman
 
 def setup():
-    print('Setup!')
+    pass
 
 def teardown():
-    print('Tear down!')
+    pass
 
 def test_basic():
     Code = {'A': '01',
@@ -20,6 +20,6 @@ def test_basic():
 
 #                 T       A    \n       Z       C     E      C     B     \n   
     input = ''.join(['110011','01','11111','11101','01','100','1010','100','001','11111'])
-    result = hoffman.hoffman.decode(Code, input)
+    result = huffman.huffman.decode(Code, input)
     assert_equal(result, 'TA\nZACECB\n')
     
