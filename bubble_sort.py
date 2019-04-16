@@ -1,5 +1,5 @@
 def bubble_sort(X):
-    """ сортировка пузырьком """
+    """ bubble sort """
     A = X[:]
     for i in range(0,len(A)-1):
         for j in range(0,len(A)-1-i):

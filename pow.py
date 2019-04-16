@@ -1,6 +1,6 @@
 
 def simple_pow(x, y):
-    """ простое возведение в степень """
+    """ simple power """
 
     result = 1
     for i in range(y):
@@ -8,7 +8,7 @@ def simple_pow(x, y):
     return result
 
 def quik_pow(x, y):
-    """ рекурсивное возведение в степень """
+    """ recursive power """
 
     if y == 1:
         return x

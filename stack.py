@@ -16,11 +16,11 @@
 stack = []
 
 def _push(stack, val):
-    """ добавляет значение в стек """
+    """ add an element to the stack """
     stack.append(val)
 
 def _pop(stack):
-    """ вынимает из стека значение """
+    """ take an element from the stack """
     return stack.pop()
 
 def _clear(stack):

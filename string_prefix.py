@@ -17,7 +17,7 @@ def prefix(A):
 
     return Pi
 
-S = 'in@string' # далее легко найти все позиции по массиву возвращаемому
-                # функции префикса. как вариант - прямой перебор
+S = 'in@string' # string search based on string prefix
+                 
 
 print(prefix(S))

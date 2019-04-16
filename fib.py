@@ -1,5 +1,5 @@
 def fib(n):
-    """ рекурсивное вычисление чисел фибоначчи """
+    """ Fibonacchi numbers recursively """
     if n <= 1:
         return 1
     return (fib(n-1) + fib(n-2))

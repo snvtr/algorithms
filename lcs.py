@@ -1,5 +1,5 @@
 def lcs(A, B):
-    """ поиск наибольшей общей последовательности """
+    """ the longest common sequence """
     F = [ [0] * (len(B) + 1) for i in range(len(A) + 1)]
 
     for i in range(1, len(A) + 1):

@@ -1,13 +1,15 @@
 
+# simple heap without classes, wrong way #2
+
 ### --- subs() --- ###
 
 def add(heap, new_val):
-    """ добавляет новый элемент в кучу и потом находит ему место в дереве """
+    """ add an element """
     heap.append(new_val)
     swap_up(heap, len(heap)-1)
 
 def swap_up(heap, new_idx):
-    """ меняет элементы местами с перемещением вверх """
+    """ push the element upwards """
     if new_idx == 0:
         return
 
@@ -19,13 +21,13 @@ def swap_up(heap, new_idx):
         swap_up(heap, parent_id)
 
 def delete(heap, del_idx):
-    """ удаляет элемент из кучи по индексу и замещает его элементами снизу """
+    """ delete an element and replace it from below - this is WRONG """ 
     swap_down(heap, del_idx)
     x = heap.pop()
 
 
 def swap_down(heap, del_idx):
-    """ меняет элементы местами с перемещением вниз """
+    """ push the element downwards """
     if del_idx >= len(heap) // 2:
         return
 

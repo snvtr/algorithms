@@ -1,14 +1,14 @@
 def levenstein(A, B):
-    """ редакционное растояние между двумя строками """    
+    """ levenstein algorythm """    
 
-    # так получить массив понятнее чем вариантом ниже
+    # This a bit clearer:
     F = [[0]*(len(B)+1) for x in range(len(A)+1)]
     for j in range(len(A)+1):
         F[j][0] = j
     for j in range(1,len(B)+1):
         F[0][j] = j
 
-    # более сложная декларация    
+    # This is bit harder to grasp:
     #F = [[ i+j if i*j == 0 else 0 for j in range(len(B)+1) ]
     #      for i in range(len(A)+1) ]
 

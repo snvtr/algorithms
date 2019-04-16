@@ -1,6 +1,6 @@
 def gis(A):
-    """ находит максимально длинную возрастающую последовательность
-        и индекс первого элемента последовательности
+    """ the longest increasing sequence
+        and the index of its first element
     """
     M = 0
     m = 0

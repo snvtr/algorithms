@@ -1,5 +1,5 @@
 def check_sorted(A, ascending=True):
-    """ Проверка отсортированности массива за O(n) """
+    """ check if array is sorted, O(n) """
 
     flag = True
     s = 2 * int(ascending) - 1

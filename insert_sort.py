@@ -1,5 +1,5 @@
 def insert_sort(X):
-    """ поиск вставками """
+    """ insert sort """
 
     A = X[:]
     for i in range(0,len(A)-1):

@@ -1,5 +1,5 @@
 def merge(A:list, B:list):
-    """ сортировка слиянием """
+    """ merge sort """
 
     C = [0]*(len(A) + len(B))
 

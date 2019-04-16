@@ -1,10 +1,14 @@
+#!/usr/bin/python3
+
 import sys
+
+# reverse notation 
 
 # 4doctest:
 
 class Stack():
     """
-        реализует имитацию стека
+        stack imitation
     """
 
     Stack = []

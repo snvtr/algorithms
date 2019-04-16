@@ -1,5 +1,5 @@
 def trajectory(N:int):
-    """ практическое применение чисел фибоначчи - сумма маршрутов """    
+    """ Fibonacchi sum: practical application, the grasshopper route """    
     K = [0,1] + [0]*N
 
     for i in range(2, N+1):
@@ -8,7 +8,7 @@ def trajectory(N:int):
     return K[N-1]
 
 def trajectory2(N:int, Allowed:list):
-    """ практическое применение чисел фибоначчи - сумма маршрутов с наличием запретных точек """    
+    """ Fibonacchi sum: practical application, the grasshopper route with banned points """    
     
     K = [0,1] + [0]*N
 

@@ -1,14 +1,16 @@
-#!C:/Python37/python3.exe
+#!/usr/bin/python3
 
-N = 5  # количество предметов
-M = 15 # емкость рюкзака в кг
+# backpack packing
+
+N = 5  # number of items
+M = 15 # backpack max weight
 
 F = [[0] * (N + 1) for i in range(M + 1)]
 
-# массы предметов
+# items' weights
 m = [2, 4, 3, 5, 6, 7]
 
-#стоимости предметов
+# items' costs
 v = [1, 2, 4, 3, 3, 4]
 
 for i in range(1, N+1):

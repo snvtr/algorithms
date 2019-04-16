@@ -1,5 +1,5 @@
 def min_cost(N:int, price:list):
-     """ минимальная цена пути """
+     """ minimum path cost """
 
     C = [float('-inf'), price[1], price[1] + price[2]] + \
          [0] * (N-2)

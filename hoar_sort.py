@@ -1,5 +1,5 @@
 def hoar_sort(A):
-    """ поиск Хоара """
+    """ Hoar's sort """
 
     L = []
     R = []

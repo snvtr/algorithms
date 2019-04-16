@@ -1,6 +1,6 @@
-#!C:/Python36/python3.exe
+#!/usr/bin/python3
 
-# бинарный поиск
+# binary search
 
 def left_bound(A:list, key):
     left = -1

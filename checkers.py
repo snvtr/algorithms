@@ -1,6 +1,6 @@
 #!C:/Python37/python3
 
-# практически построение треугольника Паскаля. Вычисление количества возможных путей добраться до клетки.
+# practical implementation of Pascal's triangle. Path cost
 
 Board = [ [1, 1, 1, 1, 1],
           [1, 0, 0, 0, 0],

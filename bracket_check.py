@@ -1,6 +1,6 @@
 def bracket_check(A):
     """
-        проверяет строку на последовательность скобок одного типа
+        single bracket type check
         >>> bracket_check('()')
         'Ok'
         >>> bracket_check(')')
