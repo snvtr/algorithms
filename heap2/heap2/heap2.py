@@ -9,15 +9,15 @@ class Heap():
 
     def __str__(self):
 
-        temp = ''
+        to_str = ''
 
         for i in self.List:
-            temp += str(i) + '; '
+            to_str += str(i) + '; '
 
-        return temp
+        return to_str
         
     def add(self, item):
-
+        """ adds an element to the end and then pushes it up: """
         self.List.append(item)
         self.size += 1
         
@@ -25,53 +25,54 @@ class Heap():
             return True
 
         self.go_up(self.size-1)
+        return True
     
     def pop(self):
-
+        """ returns the very first element: """
         if self.size == 0:
             return None
+
         rc, self.List[0] = self.List[0], self.List[-1]
         self.List.pop(-1)
         self.size -= 1 
         self.go_down(0)
+
         return rc
         
     def go_up(self, index):
-        
+        """ to push an elements upwards """
         if index == 0:
-            return
+            return True
             
         if self.List[index] < self.List[index // 2]:
             self.List[index], self.List[index // 2] = self.List[index // 2], self.List[index]
             self.go_up(index // 2)
             
-        return
+        return True
         
     def go_down(self, index):
-        
-        if index > self.size // 2:
-            return
+        """ reshuffles the tree when the first element is popped """
 
-        # если да, значит есть две ветки 
+        # border case. We have reached the end of the tree:
+        if index > self.size // 2:
+            return True
+
+        # border case. If it is the last subtree and the parent has two children:
         if index * 2 + 2 < self.size:
             if self.List[index*2+1] < self.List[index*2+2] and self.List[index*2+1] < self.List[index]:
-                # тут поменять местами
                 self.List[index*2+1], self.List[index] = self.List[index], self.List[index*2+1]
                 self.go_down(index*2+1)
-                return
+                return True
             if self.List[index*2+2] < self.List[index*2+1] and self.List[index*2+2] < self.List[index]:
-                # тут поменять местами
                 self.List[index*2+2], self.List[index] = self.List[index], self.List[index*2+2]
                 self.go_down(index*2+2)
-                return
+                return True
 
-        # если да, значит есть только левая ветка и она последняя
+        # border case. If it is the last subtree and the parent has only one child:
         if index * 2 + 1 < self.size:
             if self.List[index*2+1] < self.List[index]:
-                # тут поменять местами и возвращаемся наверх
                 self.List[index*2+1], self.List[index] = self.List[index], self.List[index*2+1]
-                return
+                return True
 
-        # больше ничего не остаётся
-        return
-        
+        # nothing is left: 
+        return True
