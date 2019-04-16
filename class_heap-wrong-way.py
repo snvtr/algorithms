@@ -10,15 +10,14 @@ class Heap():
 
     def add(self, new_val):
         """
-        Добавляет новый элемент в дерево (в конец списка и потом
-        запускает рекурсивно поиск места для элемента)
+        Adds a new element to the end of the list and then moves it recursively up into the proper place.
         """
         self.HeapList.append(new_val)
         if len(self.HeapList) > 2:
             self.swap_up(len(self.HeapList)-1)
 
     def delete(self, del_idx):
-        """ Удаляет элемент из дерева по индексу в списке """
+        """ Deletes an element from the tree """
         if len(self.HeapList) == 1:
             return
         else:
@@ -26,7 +25,7 @@ class Heap():
             self.HeapList.pop()
 
     def swap_up(self, child_idx):
-        """ перемещает элемент в списке вверх по дереву при добавлении """
+        """ moves up an elements """
         parent_idx = child_idx // 2
         if parent_idx == 0:
             return
@@ -39,9 +38,8 @@ class Heap():
 
     def swap_down(self, empty_idx):
         """
-        перемещает элемент по дереву вниз при удалении элемента
-        элемент не удаляется из списка, а заменяется на -999 -
-        чтобы увидеть место, куда "упал" удаленный элемент
+        This implementation is actually wrong. It does not replace a removed element with the last element.
+        It just replaces the deleted element with a special value
         """
         if empty_idx >= len(self.HeapList) // 2:
             self.HeapList[empty_idx] = -999

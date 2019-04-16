@@ -5,16 +5,16 @@ except ImportError:
     from distutils.core import setup
 
 config = {
-    "description" : "Hoffman decoding",
+    "description" : "Binary heap implementation",
     "author" : "Alexander A.",
     "url" : "http://example.com/no_url/",
     "download_url" : "http://example.com/no_url/download/",
-    "author_email" : "aaa.xxx@gmail.com",
+    "author_email" : "aaa.bbb@gmail.com",
     "version" : "0.0",
     "install_requires" : ["nose"],
-    "packages" : ["huffman"],
+    "packages" : ["heap2"],
     "scripts" : [],
-    "name" : "huffman"
+    "name" : "heap2"
 }
 
 setup(**config)
