@@ -1,1 +1,1 @@
-Каталогизация фотографий по EXIF
+EXIF-based catalogisation
