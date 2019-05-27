@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 
-# simple chess horse movement, without restriction
+# simple chess horse movement via non-oriented Graph, with restriction
 
 ### __subs__ ###
 
-def bfs(ThisLevel, level):
+def bfs_banned(ThisLevel, level):
 
 # - increase Touched node counter when node is in ThisLevel
 # - add node to the Touched set
@@ -18,12 +18,13 @@ def bfs(ThisLevel, level):
             Counter[i] = level
             Touched.add(i)
         for j in Board[i]:
-            NextLevel.append(j)
+            if j not in Banned:
+                NextLevel.append(j)
     level += 1
-    if len(Touched) > 63:
+    if len(Touched) > 63: # all the fields are touched by the horse
         return
     else:
-        bfs(NextLevel, level)
+        bfs_banned(NextLevel, level)
 
 ### __main__ ###
 
@@ -58,9 +59,23 @@ for i in range(1,9):
             if 0 < j-1 < 9:
                 Board[str(i)+str(j)].add(str(i+2)+str(j-1))
         
+
 start = '11'
 level = 0
 count = 0
+Banned = ['22','33','44','55','66']
+
+# Simple: add banned fields as already touched!
+
+for i in Banned:
+    Board[i] = {}
+    for j in Board.keys():
+        try:
+            Board[j].remove(i)
+        except:
+            pass
+    Touched.add(i)
+    Counter[i] = -1
 
 # debug:
 for i in '12345678':
@@ -68,9 +83,10 @@ for i in '12345678':
         print('i: %s, j: %s :: %r' % (i, j, Board[i+j]))
 
 
-# start with one-element list and level=0
+# start with one-element list and level=0,
+# DO NOT START WITH A BANNED FIELD
 
-bfs([start], level)
+bfs_banned([start], level)
 
 for i in Counter.keys():
     print('Key: %s, Value: %s' % (i, Counter[i]))
