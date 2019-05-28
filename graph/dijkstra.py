@@ -2,9 +2,8 @@
 
 ### __subs__ ###
 
-def dijkstra(start, total_best):
+def dijkstra(start, end, prev, total_best):
     
-    maximum = 255
     best    = None
 
     print('Working with vertex %s' % start)
@@ -13,16 +12,19 @@ def dijkstra(start, total_best):
         if i in Used:
             print('Used vertex %s. Skipped' % i)
             continue
-        if Graph[start][i] < maximum:
-            maximum = Graph[start][i]
+        if Graph[start][i] < VertexCost[i]:
+            VertexCost[i] = Graph[start][i]
             best = i
 
     if best is not None:
         print('The best vertex: %s' % best)
-        Used.append(best)
+        Used.append(start)
         total_best += Graph[start][best]
         VertexCost[best] = total_best
-        dijkstra(best, total_best)
+#        if best == end:
+#            return
+#        else:
+        dijkstra(best, end, start, total_best)
     else:
         return
 
@@ -50,6 +52,6 @@ Path = []
 VertexCost['A'] = 0
 Used.append('A')
 
-dijkstra('A', 0)
+dijkstra('A', 'G', '', 0)
 
 print(VertexCost)
