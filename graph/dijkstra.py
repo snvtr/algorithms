@@ -27,8 +27,8 @@ def rebuild_path(Queue, Graph, VertexCost, finish_at):
         vertex = Queue.popleft()
         print('Rebuilding path. Current vertex: %s' % vertex)
 
-        if vertex == finish_at:
-            return Path
+#        if vertex == finish_at:
+#            return Path
 
         for i in Graph[vertex]:
             if VertexCost[vertex] - Graph[vertex][i] == VertexCost[i]:
