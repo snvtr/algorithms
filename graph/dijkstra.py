@@ -1,32 +1,22 @@
 #!/usr/bin/python3
 
+import collections
+
 ### __subs__ ###
 
-def dijkstra(start, end, prev, total_best):
+def dijkstra(Queue, VertexCost):
     
-    best    = None
+    best    = 255
 
-    print('Working with vertex %s' % start)
+    while Queue:
 
-    for i in Graph[start]:
-        if i in Used:
-            print('Used vertex %s. Skipped' % i)
-            continue
-        if Graph[start][i] < VertexCost[i]:
-            VertexCost[i] = Graph[start][i]
-            best = i
+        start = Queue.popleft()
+        print('Working with vertex %s' % start)
 
-    if best is not None:
-        print('The best vertex: %s' % best)
-        Used.append(start)
-        total_best += Graph[start][best]
-        VertexCost[best] = total_best
-#        if best == end:
-#            return
-#        else:
-        dijkstra(best, end, start, total_best)
-    else:
-        return
+        for i in Graph[start]:
+            if Graph[start][i] + VertexCost[start] < VertexCost[i]:
+                VertexCost[i] = Graph[start][i] + VertexCost[start]
+                Queue.append(i)
 
 ### __main__ ###
 
@@ -40,8 +30,10 @@ Graph = {'A': {'B': 2, 'C': 1},
          'G': {'B': 8, 'F': 2}
         }
 
-VertexCost = {'A': 255, 'B': 255, 'C': 255, 'D': 255, 'E': 255, 'F': 255, 'G': 255} # Best cost of the route to the vertex
-Used = []
+Queue = collections.deque()
+
+# Best costs for vertexes, initially "infinity"
+VertexCost = {'A': 255, 'B': 255, 'C': 255, 'D': 255, 'E': 255, 'F': 255, 'G': 255} 
 Path = []
 
 # Edges and their cost:
@@ -49,9 +41,11 @@ Path = []
 #    for j in Graph[i]:
 #        print(i, j, Graph[i][j])
 
+# The start vertex init:
 VertexCost['A'] = 0
-Used.append('A')
+Queue.append('A')
 
-dijkstra('A', 'G', '', 0)
+dijkstra(Queue, VertexCost)
 
+# Costs to each vertex from Start (i.e. 'A')
 print(VertexCost)
