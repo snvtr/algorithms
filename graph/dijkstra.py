@@ -18,7 +18,7 @@ def dijkstra(Queue, VertexCost):
                 VertexCost[i] = Graph[vertex][i] + VertexCost[vertex]
                 Queue.append(i)
 
-def rebuild_path(Queue, Graph, VertexCost, finish_at):
+def rebuild_path(Queue, Graph, VertexCost):
 
     Path = []
 
@@ -26,9 +26,6 @@ def rebuild_path(Queue, Graph, VertexCost, finish_at):
 
         vertex = Queue.popleft()
         print('Rebuilding path. Current vertex: %s' % vertex)
-
-#        if vertex == finish_at:
-#            return Path
 
         for i in Graph[vertex]:
             if VertexCost[vertex] - Graph[vertex][i] == VertexCost[i]:
@@ -91,8 +88,9 @@ print(VertexCost)
 ### Part #2 - Rebuilding the best path backwards:
 
 start_vertex = 'G'
-finish_at    = 'A'
 
 Queue.append(start_vertex)
-Path = rebuild_path(Queue, Graph, VertexCost, finish_at)
+Path = rebuild_path(Queue, Graph, VertexCost)
+
+# the whole path rebuilt backwards:
 print(start_vertex, Path)
